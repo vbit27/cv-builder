@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ExperienceList from './ExperienceList';
 import PersonalData from './PersonalData';
 
 function ResumeContainer() {
@@ -12,6 +13,7 @@ function ResumeContainer() {
   return (
     <div>
       <PersonalData onSubmit={addPersonalInfo} />
+      <ExperienceList />
     </div>
   );
 }
