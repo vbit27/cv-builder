@@ -1,44 +1,44 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FC, FormEvent, useState } from 'react';
 import './PersonalData.css';
 
-interface Info {
-  name: string;
-  surname: string;
-  email: string;
-  phone: string;
-  editing: boolean;
-}
-
-function PersonalData(props: any) {
+const PersonalData: FC<Prop> = (props) => {
   const [info, setInfo] = useState<Info>({
     name: '',
     surname: '',
     email: '',
     phone: '',
-    editing: true,
   });
 
-  const handleChange = (e: any) => {
+  const [editMode, setEditMode] = useState(false);
+
+  const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (
+    e
+  ) => {
     const newValue = { ...info, [e.target.name]: e.target.value };
     setInfo(newValue);
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void = (
+    e
+  ) => {
     e.preventDefault();
-    setInfo({ ...info, editing: false });
+    setInfo(info);
     props.onSubmit(info);
+    setEditMode(false);
   };
 
-  const switchSubmitted = () => {
-    setInfo({ ...info, editing: true });
+  const switchToEdit: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void = () => {
+    setEditMode(true);
   };
 
-  if (!info.editing) {
+  if (!editMode) {
     return (
       <div>
         <h1>{info.name}</h1>
         <h2>{info.surname}</h2>
-        <button onClick={switchSubmitted}>Edit</button>
+        <button onClick={switchToEdit}>Edit</button>
       </div>
     );
   }
@@ -58,6 +58,7 @@ function PersonalData(props: any) {
         value={info.surname}
         onChange={handleChange}
         name="surname"
+        required
       />
       <label htmlFor="email">Email</label>
       <input
@@ -76,6 +77,16 @@ function PersonalData(props: any) {
       <button type="submit">Submit</button>
     </form>
   );
+};
+
+interface Info {
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
 }
 
+interface Prop {
+  onSubmit: (info: Info) => void;
+}
 export default PersonalData;
