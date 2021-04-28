@@ -39,7 +39,6 @@ const PersonalData: FC = () => {
         <h2>{info.surname}</h2>
         <h2>{info.email}</h2>
         <h2>{info.phone}</h2>
-
         <button onClick={switchToEdit}>Edit</button>
       </div>
     );
@@ -60,7 +59,6 @@ const PersonalData: FC = () => {
         value={info.surname}
         onChange={handleChange}
         name="surname"
-        required
       />
       <label htmlFor="email">Email</label>
       <input

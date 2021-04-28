@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-function Experience() {
+const Experience: FC<Prop> = ({ expList }) => {
   return (
     <div>
-      <h3>Vasil Bituni Photography</h3>
-      <button>Edit</button>
-      <button>Delete</button>
+      {expList.map((job) => {
+        return (
+          <div key={job.id}>
+            <h3>{job.position}</h3>
+            <h3>{job.company}</h3>
+            <h3>{job.city}</h3>
+            <h3>{job.start}</h3>
+            <h3>{job.end}</h3>
+            <button>Delete</button>
+            <button>Edit</button>
+          </div>
+        );
+      })}
     </div>
   );
+};
+
+interface Prop {
+  expList: JobsList[];
 }
 
+interface JobsList {
+  id: number;
+  position: string;
+  company: string;
+  city: string;
+  start: string;
+  end: string;
+}
 export default Experience;

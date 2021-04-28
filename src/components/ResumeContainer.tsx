@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import ExperienceList from './ExperienceList';
 import PersonalData from './PersonalData';
 
