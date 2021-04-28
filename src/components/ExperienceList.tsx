@@ -6,18 +6,24 @@ function ExperienceList() {
   const [visibility, setVisibility] = useState(false);
   const [expList, setExpList] = useState<JobsList[]>([]);
 
+  const handleSubmit = (exp: JobsList) => {
+    setExpList([...expList, exp]);
+  };
+
   return (
     <div>
       <h2>Work Experience</h2>
       <button onClick={() => setVisibility(true)}>+ Add Job</button>
-      {visibility ? <ExperienceForm /> : null}
+      {visibility ? (
+        <ExperienceForm onSubmit={(exp: JobsList) => handleSubmit(exp)} />
+      ) : null}
       <Experience expList={expList} />
     </div>
   );
 }
 
 interface JobsList {
-  id: number;
+  id: string;
   position: string;
   company: string;
   city: string;

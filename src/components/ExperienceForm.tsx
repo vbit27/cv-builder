@@ -1,8 +1,9 @@
 import React, { FC, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
-const ExperienceForm: FC = () => {
+const ExperienceForm: FC<Prop> = (props) => {
   const [input, setInput] = useState<JobsList>({
-    id: 0,
+    id: uuid(),
     position: '',
     company: '',
     city: '',
@@ -15,10 +16,16 @@ const ExperienceForm: FC = () => {
   ) => {
     const newValue = { ...input, [e.target.name]: e.target.value };
     setInput(newValue);
-    console.log(input);
+  };
+
+  const handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void = (
+    e
+  ) => {
+    e.preventDefault();
+    props.onSubmit(input);
   };
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="position">Position</label>
       <input type="text" name="position" onChange={handleChange} />
       <label htmlFor="Company">Company</label>
@@ -35,8 +42,12 @@ const ExperienceForm: FC = () => {
   );
 };
 
+interface Prop {
+  onSubmit: (input: JobsList) => void;
+}
+
 interface JobsList {
-  id: number;
+  id: string;
   position: string;
   company: string;
   city: string;

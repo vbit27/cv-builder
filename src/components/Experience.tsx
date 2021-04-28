@@ -25,7 +25,7 @@ interface Prop {
 }
 
 interface JobsList {
-  id: number;
+  id: string;
   position: string;
   company: string;
   city: string;
