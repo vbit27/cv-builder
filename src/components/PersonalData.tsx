@@ -1,7 +1,7 @@
 import React, { FC, FormEvent, useState } from 'react';
 import './PersonalData.css';
 
-const PersonalData: FC<Prop> = (props) => {
+const PersonalData: FC = () => {
   const [info, setInfo] = useState<Info>({
     name: '',
     surname: '',
@@ -9,7 +9,7 @@ const PersonalData: FC<Prop> = (props) => {
     phone: '',
   });
 
-  const [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(true);
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (
     e
@@ -23,7 +23,6 @@ const PersonalData: FC<Prop> = (props) => {
   ) => {
     e.preventDefault();
     setInfo(info);
-    props.onSubmit(info);
     setEditMode(false);
   };
 
@@ -38,6 +37,9 @@ const PersonalData: FC<Prop> = (props) => {
       <div>
         <h1>{info.name}</h1>
         <h2>{info.surname}</h2>
+        <h2>{info.email}</h2>
+        <h2>{info.phone}</h2>
+
         <button onClick={switchToEdit}>Edit</button>
       </div>
     );
@@ -86,7 +88,4 @@ interface Info {
   phone: string;
 }
 
-interface Prop {
-  onSubmit: (info: Info) => void;
-}
 export default PersonalData;
