@@ -8,6 +8,19 @@ function ExperienceList() {
 
   const handleSubmit = (exp: JobsList) => {
     setExpList([...expList, exp]);
+    setVisibility(false);
+  };
+
+  const deleteExperience = (id: string) => {
+    setExpList(expList.filter((x) => x.id !== id));
+  };
+
+  const handleUpdate = (update: JobsList) => {
+    const updatedValue = expList.map((job) =>
+      update.id === job.id ? update : job
+    );
+
+    setExpList(updatedValue);
   };
 
   return (
@@ -17,7 +30,11 @@ function ExperienceList() {
       {visibility ? (
         <ExperienceForm onSubmit={(exp: JobsList) => handleSubmit(exp)} />
       ) : null}
-      <Experience expList={expList} />
+      <Experience
+        expList={expList}
+        deleteExperience={(id) => deleteExperience(id)}
+        updateExperience={(update) => handleUpdate(update)}
+      />
     </div>
   );
 }

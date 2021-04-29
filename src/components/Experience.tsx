@@ -1,6 +1,41 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+//import { v4 as uuid } from 'uuid';
+import ExperienceForm from './ExperienceForm';
 
-const Experience: FC<Prop> = ({ expList }) => {
+const Experience: FC<Prop> = ({
+  expList,
+  deleteExperience,
+  updateExperience,
+}) => {
+  const [edit, setEdit] = useState<JobsList>({
+    id: '',
+    position: '',
+    company: '',
+    city: '',
+    start: '',
+    end: '',
+  });
+
+  const handleUpdate = () => {
+    updateExperience(edit);
+    setEdit({
+      id: '',
+      position: '',
+      company: '',
+      city: '',
+      start: '',
+      end: '',
+    });
+  };
+
+  const handleDelete = (id: string) => {
+    deleteExperience(id);
+  };
+
+  if (edit.id) {
+    return <ExperienceForm edit={edit} onSubmit={handleUpdate} />;
+  }
+
   return (
     <div>
       {expList.map((job) => {
@@ -11,8 +46,21 @@ const Experience: FC<Prop> = ({ expList }) => {
             <h3>{job.city}</h3>
             <h3>{job.start}</h3>
             <h3>{job.end}</h3>
-            <button>Delete</button>
-            <button>Edit</button>
+            <button onClick={() => handleDelete(job.id)}>Delete</button>
+            <button
+              onClick={() =>
+                setEdit({
+                  id: job.id,
+                  position: job.position,
+                  company: job.company,
+                  city: job.city,
+                  start: job.start,
+                  end: job.end,
+                })
+              }
+            >
+              Edit
+            </button>
           </div>
         );
       })}
@@ -22,6 +70,8 @@ const Experience: FC<Prop> = ({ expList }) => {
 
 interface Prop {
   expList: JobsList[];
+  deleteExperience: (id: string) => void;
+  updateExperience: (value: JobsList) => void;
 }
 
 interface JobsList {
