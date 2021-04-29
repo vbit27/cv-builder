@@ -22,8 +22,6 @@ const ExperienceForm: FC<Prop> = (props) => {
     setInput(newValue);
   };
 
-  const handleCancelation = () => {};
-
   const handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void = (
     e
   ) => {
