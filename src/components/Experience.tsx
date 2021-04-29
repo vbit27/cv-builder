@@ -16,8 +16,8 @@ const Experience: FC<Prop> = ({
     end: '',
   });
 
-  const handleUpdate = () => {
-    updateExperience(edit);
+  const handleUpdate = (input: JobsList) => {
+    updateExperience(input);
     setEdit({
       id: '',
       position: '',

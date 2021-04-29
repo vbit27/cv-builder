@@ -27,7 +27,6 @@ const ExperienceForm: FC<Prop> = (props) => {
   ) => {
     e.preventDefault();
     props.onSubmit(input);
-    console.log(input);
   };
 
   return (
