@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import EducationList from './EducationList';
 import ExperienceList from './ExperienceList';
 import PersonalData from './PersonalData';
 
@@ -7,6 +8,7 @@ const ResumeContainer: FC = () => {
     <div>
       <PersonalData />
       <ExperienceList />
+      <EducationList />
     </div>
   );
 };

@@ -22,6 +22,8 @@ const ExperienceForm: FC<Prop> = (props) => {
     setInput(newValue);
   };
 
+  const handleCancelation = () => {};
+
   const handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void = (
     e
   ) => {
@@ -69,7 +71,6 @@ const ExperienceForm: FC<Prop> = (props) => {
             onChange={handleChange}
           />
           <button type="submit">Update</button>
-          <div>Cancel</div>
         </div>
       ) : (
         <div>
@@ -84,7 +85,6 @@ const ExperienceForm: FC<Prop> = (props) => {
           <label htmlFor="to">To</label>
           <input type="date" name="end" onChange={handleChange} />
           <button type="submit">Submit</button>
-          <div>Cancel</div>
         </div>
       )}
     </form>
