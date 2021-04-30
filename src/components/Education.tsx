@@ -1,4 +1,6 @@
 import React, { FC, useState } from 'react';
+import { Studies } from './types';
+
 import EducationForm from './EducationForm';
 
 const Education: FC<Prop> = (props) => {
@@ -59,15 +61,6 @@ interface Prop {
   educationList: Array<Studies>;
   deleteEducation: (id: string) => void;
   updateEducation: (update: Studies) => void;
-}
-
-interface Studies {
-  id: string;
-  university: string;
-  city: string;
-  degree: string;
-  subject: string;
-  year: string;
 }
 
 export default Education;

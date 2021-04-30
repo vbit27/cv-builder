@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Studies } from './types';
 import Education from './Education';
 import EducationForm from './EducationForm';
 
@@ -13,7 +14,6 @@ function EducationList() {
   const handleSubmit = (input: Studies) => {
     setEducationList([...educationList, input]);
     setVisibility(false);
-    console.log(educationList);
   };
   const handleUpdate = (update: Studies) => {
     const updatedEducation = educationList.map((education) =>
@@ -39,15 +39,6 @@ function EducationList() {
       />
     </div>
   );
-}
-
-interface Studies {
-  id: string;
-  university: string;
-  city: string;
-  degree: string;
-  subject: string;
-  year: string;
 }
 
 export default EducationList;

@@ -1,4 +1,6 @@
 import React, { FC, useState } from 'react';
+import { Studies } from './types';
+
 import { v4 as uuid } from 'uuid';
 
 const EducationForm: FC<Prop> = (props) => {
@@ -78,15 +80,6 @@ const EducationForm: FC<Prop> = (props) => {
 interface Prop {
   onSubmit: (input: Studies) => void;
   edit?: Studies;
-}
-
-interface Studies {
-  id: string;
-  university: string;
-  city: string;
-  degree: string;
-  subject: string;
-  year: string;
 }
 
 export default EducationForm;

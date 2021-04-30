@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import { JobsList } from './types';
 import ExperienceForm from './ExperienceForm';
 
 const Experience: FC<Prop> = (props) => {
@@ -64,12 +65,4 @@ interface Prop {
   updateExperience: (value: JobsList) => void;
 }
 
-interface JobsList {
-  id: string;
-  position: string;
-  company: string;
-  city: string;
-  start: string;
-  end: string;
-}
 export default Experience;

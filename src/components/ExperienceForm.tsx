@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import { JobsList } from './types';
 import { v4 as uuid } from 'uuid';
 
 const ExperienceForm: FC<Prop> = (props) => {
@@ -76,15 +77,6 @@ const ExperienceForm: FC<Prop> = (props) => {
 interface Prop {
   onSubmit: (input: JobsList) => void;
   edit?: JobsList;
-}
-
-interface JobsList {
-  id: string;
-  position: string;
-  company: string;
-  city: string;
-  start: string;
-  end: string;
 }
 
 export default ExperienceForm;

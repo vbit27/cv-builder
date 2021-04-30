@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { JobsList } from './types';
 import Experience from './Experience';
 import ExperienceForm from './ExperienceForm';
 
@@ -9,7 +10,6 @@ function ExperienceList() {
   const handleSubmit = (exp: JobsList) => {
     setExpList([...expList, exp]);
     setVisibility(false);
-    console.log(expList);
   };
 
   const deleteExperience = (id: string) => {
@@ -38,15 +38,6 @@ function ExperienceList() {
       />
     </div>
   );
-}
-
-interface JobsList {
-  id: string;
-  position: string;
-  company: string;
-  city: string;
-  start: string;
-  end: string;
 }
 
 export default ExperienceList;
