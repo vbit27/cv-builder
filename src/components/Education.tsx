@@ -1,10 +1,39 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import EducationForm from './EducationForm';
 
-const Education: FC<Prop> = ({ educationList, deleteEducation }) => {
+const Education: FC<Prop> = ({
+  educationList,
+  deleteEducation,
+  updateEducation,
+}) => {
+  const [edit, setEdit] = useState<Studies>({
+    id: '',
+    university: '',
+    city: '',
+    degree: '',
+    subject: '',
+    year: '',
+  });
+
   const handleDelete = (id: string) => {
     deleteEducation(id);
   };
 
+  const handleUpdate = (input: Studies) => {
+    updateEducation(input);
+    setEdit({
+      id: '',
+      university: '',
+      city: '',
+      degree: '',
+      subject: '',
+      year: '',
+    });
+  };
+
+  if (edit.id) {
+    return <EducationForm edit={edit} onSubmit={handleUpdate} />;
+  }
   return (
     <div>
       {educationList.map((education) => (
@@ -15,7 +44,20 @@ const Education: FC<Prop> = ({ educationList, deleteEducation }) => {
           <h4>{education.degree}</h4>
           <h4>{education.year}</h4>
           <button onClick={() => handleDelete(education.id)}>Delete</button>
-          <button>Edit</button>
+          <button
+            onClick={() =>
+              setEdit({
+                id: education.id,
+                university: education.university,
+                city: education.city,
+                degree: education.degree,
+                subject: education.subject,
+                year: education.year,
+              })
+            }
+          >
+            Edit
+          </button>
         </div>
       ))}
     </div>
@@ -25,6 +67,7 @@ const Education: FC<Prop> = ({ educationList, deleteEducation }) => {
 interface Prop {
   educationList: Array<Studies>;
   deleteEducation: (id: string) => void;
+  updateEducation: (update: Studies) => void;
 }
 
 interface Studies {

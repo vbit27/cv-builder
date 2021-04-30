@@ -15,7 +15,13 @@ function EducationList() {
     setVisibility(false);
     console.log(educationList);
   };
+  const handleUpdate = (update: Studies) => {
+    const updatedEducation = educationList.map((education) =>
+      update.id === education.id ? update : education
+    );
 
+    setEducationList(updatedEducation);
+  };
   const handleDelete = (id: string) => {
     setEducationList(educationList.filter((x) => x.id !== id));
   };
@@ -29,6 +35,7 @@ function EducationList() {
       <Education
         educationList={educationList}
         deleteEducation={(id) => handleDelete(id)}
+        updateEducation={(update) => handleUpdate(update)}
       />
     </div>
   );

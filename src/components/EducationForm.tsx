@@ -2,14 +2,18 @@ import React, { FC, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
 const EducationForm: FC<Prop> = (props) => {
-  const [input, setInput] = useState<Studies>({
-    id: uuid(),
-    university: '',
-    city: '',
-    degree: '',
-    subject: '',
-    year: '',
-  });
+  const [input, setInput] = useState<Studies>(
+    props.edit
+      ? props.edit
+      : {
+          id: uuid(),
+          university: '',
+          city: '',
+          degree: '',
+          subject: '',
+          year: '',
+        }
+  );
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (
     e
@@ -28,17 +32,85 @@ const EducationForm: FC<Prop> = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="university">University</label>
-        <input type="text" name="university" onChange={handleChange} />
-        <label htmlFor="city">City</label>
-        <input type="text" name="city" onChange={handleChange} />
-        <label htmlFor="degree">Degree</label>
-        <input type="text" name="degree" onChange={handleChange} />
-        <label htmlFor="Subject">Subject</label>
-        <input type="text" name="Subject" onChange={handleChange} />
-        <label htmlFor="year">Year</label>
-        <input type="date" name="year" onChange={handleChange} />
-        <button type="submit">Submit</button>
+        {props.edit ? (
+          <div>
+            <label htmlFor="university">University</label>
+            <input
+              type="text"
+              name="university"
+              value={input.university}
+              onChange={handleChange}
+            />
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              name="city"
+              value={input.city}
+              onChange={handleChange}
+            />
+            <label htmlFor="degree">Degree</label>
+            <input
+              type="text"
+              name="degree"
+              value={input.degree}
+              onChange={handleChange}
+            />
+            <label htmlFor="Subject">Subject</label>
+            <input
+              type="text"
+              name="subject"
+              value={input.subject}
+              onChange={handleChange}
+            />
+            <label htmlFor="year">Year</label>
+            <input
+              type="date"
+              name="year"
+              value={input.year}
+              onChange={handleChange}
+            />
+            <button type="submit">Update</button>{' '}
+          </div>
+        ) : (
+          <div>
+            <label htmlFor="university">University</label>
+            <input
+              type="text"
+              name="university"
+              value={input.university}
+              onChange={handleChange}
+            />
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              name="city"
+              value={input.city}
+              onChange={handleChange}
+            />
+            <label htmlFor="degree">Degree</label>
+            <input
+              type="text"
+              name="degree"
+              value={input.degree}
+              onChange={handleChange}
+            />
+            <label htmlFor="Subject">Subject</label>
+            <input
+              type="text"
+              name="subject"
+              value={input.subject}
+              onChange={handleChange}
+            />
+            <label htmlFor="year">Year</label>
+            <input
+              type="date"
+              name="year"
+              value={input.year}
+              onChange={handleChange}
+            />
+            <button type="submit">Submit</button>{' '}
+          </div>
+        )}
       </form>
     </div>
   );
@@ -46,6 +118,7 @@ const EducationForm: FC<Prop> = (props) => {
 
 interface Prop {
   onSubmit: (input: Studies) => void;
+  edit?: Studies;
 }
 
 interface Studies {
