@@ -1,8 +1,9 @@
 import React, { FC, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 const EducationForm: FC<Prop> = (props) => {
-  const [input, setInput] = useState({
-    id: '',
+  const [input, setInput] = useState<Studies>({
+    id: uuid(),
     university: '',
     city: '',
     degree: '',
@@ -13,7 +14,8 @@ const EducationForm: FC<Prop> = (props) => {
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (
     e
   ) => {
-    setInput({ ...input, [e.currentTarget.name]: e.currentTarget.value });
+    const newValue = { ...input, [e.target.name]: e.target.value };
+    setInput(newValue);
   };
 
   const handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void = (

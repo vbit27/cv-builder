@@ -9,6 +9,7 @@ function ExperienceList() {
   const handleSubmit = (exp: JobsList) => {
     setExpList([...expList, exp]);
     setVisibility(false);
+    console.log(expList);
   };
 
   const deleteExperience = (id: string) => {
@@ -28,7 +29,7 @@ function ExperienceList() {
       <h2>Work Experience</h2>
       <button onClick={() => setVisibility(true)}>+ Add Job</button>
       {visibility ? (
-        <ExperienceForm onSubmit={(exp: JobsList) => handleSubmit(exp)} />
+        <ExperienceForm onSubmit={(exp) => handleSubmit(exp)} />
       ) : null}
       <Experience
         expList={expList}

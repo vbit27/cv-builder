@@ -12,7 +12,12 @@ function EducationList() {
 
   const handleSubmit = (input: Studies) => {
     setEducationList([...educationList, input]);
+    setVisibility(false);
     console.log(educationList);
+  };
+
+  const handleDelete = (id: string) => {
+    setEducationList(educationList.filter((x) => x.id !== id));
   };
   return (
     <div>
@@ -21,7 +26,10 @@ function EducationList() {
       {visibility ? (
         <EducationForm onSubmit={(input) => handleSubmit(input)} />
       ) : null}
-      <Education educationList={educationList} />
+      <Education
+        educationList={educationList}
+        deleteEducation={(id) => handleDelete(id)}
+      />
     </div>
   );
 }
