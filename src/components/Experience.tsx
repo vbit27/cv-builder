@@ -17,14 +17,7 @@ const Experience: FC<Prop> = ({
 
   const handleUpdate = (input: JobsList) => {
     updateExperience(input);
-    setEdit({
-      id: '',
-      position: '',
-      company: '',
-      city: '',
-      start: '',
-      end: '',
-    });
+    setEdit(initialState);
   };
 
   const handleDelete = (id: string) => {
@@ -65,6 +58,15 @@ const Experience: FC<Prop> = ({
       })}
     </div>
   );
+};
+
+const initialState = {
+  id: '',
+  position: '',
+  company: '',
+  city: '',
+  start: '',
+  end: '',
 };
 
 interface Prop {

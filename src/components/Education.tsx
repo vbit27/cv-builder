@@ -6,14 +6,7 @@ const Education: FC<Prop> = ({
   deleteEducation,
   updateEducation,
 }) => {
-  const [edit, setEdit] = useState<Studies>({
-    id: '',
-    university: '',
-    city: '',
-    degree: '',
-    subject: '',
-    year: '',
-  });
+  const [edit, setEdit] = useState<Studies>(initialState);
 
   const handleDelete = (id: string) => {
     deleteEducation(id);
@@ -21,14 +14,7 @@ const Education: FC<Prop> = ({
 
   const handleUpdate = (input: Studies) => {
     updateEducation(input);
-    setEdit({
-      id: '',
-      university: '',
-      city: '',
-      degree: '',
-      subject: '',
-      year: '',
-    });
+    setEdit(initialState);
   };
 
   if (edit.id) {
@@ -62,6 +48,15 @@ const Education: FC<Prop> = ({
       ))}
     </div>
   );
+};
+
+const initialState = {
+  id: '',
+  university: '',
+  city: '',
+  degree: '',
+  subject: '',
+  year: '',
 };
 
 interface Prop {
