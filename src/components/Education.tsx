@@ -1,20 +1,29 @@
 import React, { FC, useState } from 'react';
 import EducationForm from './EducationForm';
 
-const Education: FC<Prop> = ({
-  educationList,
-  deleteEducation,
-  updateEducation,
-}) => {
+const Education: FC<Prop> = (props) => {
   const [edit, setEdit] = useState<Studies>(initialState);
 
   const handleDelete = (id: string) => {
-    deleteEducation(id);
+    props.deleteEducation(id);
   };
 
   const handleUpdate = (input: Studies) => {
-    updateEducation(input);
+    props.updateEducation(input);
     setEdit(initialState);
+  };
+
+  const handleEdit = (education: Studies) => {
+    const currentValue = {
+      id: education.id,
+      university: education.university,
+      city: education.city,
+      degree: education.degree,
+      subject: education.subject,
+      year: education.year,
+    };
+
+    setEdit(currentValue);
   };
 
   if (edit.id) {
@@ -22,7 +31,7 @@ const Education: FC<Prop> = ({
   }
   return (
     <div>
-      {educationList.map((education) => (
+      {props.educationList.map((education) => (
         <div key={education.id}>
           <h4>{education.university}</h4>
           <h4>{education.city}</h4>
@@ -30,20 +39,7 @@ const Education: FC<Prop> = ({
           <h4>{education.degree}</h4>
           <h4>{education.year}</h4>
           <button onClick={() => handleDelete(education.id)}>Delete</button>
-          <button
-            onClick={() =>
-              setEdit({
-                id: education.id,
-                university: education.university,
-                city: education.city,
-                degree: education.degree,
-                subject: education.subject,
-                year: education.year,
-              })
-            }
-          >
-            Edit
-          </button>
+          <button onClick={() => handleEdit(education)}>Edit</button>
         </div>
       ))}
     </div>

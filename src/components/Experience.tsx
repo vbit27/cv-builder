@@ -1,27 +1,29 @@
 import React, { FC, useState } from 'react';
 import ExperienceForm from './ExperienceForm';
 
-const Experience: FC<Prop> = ({
-  expList,
-  deleteExperience,
-  updateExperience,
-}) => {
-  const [edit, setEdit] = useState<JobsList>({
-    id: '',
-    position: '',
-    company: '',
-    city: '',
-    start: '',
-    end: '',
-  });
+const Experience: FC<Prop> = (props) => {
+  const [edit, setEdit] = useState<JobsList>(initialState);
 
   const handleUpdate = (input: JobsList) => {
-    updateExperience(input);
+    props.updateExperience(input);
     setEdit(initialState);
   };
 
   const handleDelete = (id: string) => {
-    deleteExperience(id);
+    props.deleteExperience(id);
+  };
+
+  const handleEdit = (job: JobsList) => {
+    const currentValue = {
+      id: job.id,
+      position: job.position,
+      company: job.company,
+      city: job.city,
+      start: job.start,
+      end: job.end,
+    };
+
+    setEdit(currentValue);
   };
 
   if (edit.id) {
@@ -30,7 +32,7 @@ const Experience: FC<Prop> = ({
 
   return (
     <div>
-      {expList.map((job) => {
+      {props.expList.map((job) => {
         return (
           <div key={job.id}>
             <h3>{job.position}</h3>
@@ -39,20 +41,7 @@ const Experience: FC<Prop> = ({
             <h3>{job.start}</h3>
             <h3>{job.end}</h3>
             <button onClick={() => handleDelete(job.id)}>Delete</button>
-            <button
-              onClick={() =>
-                setEdit({
-                  id: job.id,
-                  position: job.position,
-                  company: job.company,
-                  city: job.city,
-                  start: job.start,
-                  end: job.end,
-                })
-              }
-            >
-              Edit
-            </button>
+            <button onClick={() => handleEdit(job)}>Edit</button>
           </div>
         );
       })}
