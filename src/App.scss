@@ -1,0 +1,25 @@
+$primaryColor: #61dafb;
+
+.App {
+  text-align: center;
+  height: fit-content;
+  width: 800px;
+  margin: 0 auto;
+  background-color: $primaryColor;
+}
+
+form {
+}
+
+button {
+  background-color: white;
+  border: none;
+  padding: 1em;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #61dafb;
+  color: white;
+}

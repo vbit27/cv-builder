@@ -1,5 +1,5 @@
-import React, { FC, FormEvent, useState } from 'react';
-import './PersonalData.css';
+import React, { FC, useState } from 'react';
+import './PersonalData.scss';
 
 const PersonalData: FC = () => {
   const [info, setInfo] = useState<Info>({
