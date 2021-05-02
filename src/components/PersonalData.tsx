@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-import './PersonalData.scss';
 
 const PersonalData: FC = () => {
   const [info, setInfo] = useState<Info>({
@@ -45,37 +44,42 @@ const PersonalData: FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">First Name</label>
-      <input
-        type="text"
-        value={info.name}
-        onChange={handleChange}
-        name="name"
-      />
-      <label htmlFor="surname">Last Name</label>
-      <input
-        type="text"
-        value={info.surname}
-        onChange={handleChange}
-        name="surname"
-      />
-      <label htmlFor="email">Email</label>
-      <input
-        type="text"
-        value={info.email}
-        onChange={handleChange}
-        name="email"
-      />
-      <label htmlFor="phone">Phone</label>
-      <input
-        type="text"
-        value={info.phone}
-        onChange={handleChange}
-        name="phone"
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <h3>Personal Information</h3>
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">First Name</label>
+          <input
+            type="text"
+            value={info.name}
+            onChange={handleChange}
+            name="name"
+          />
+          <label htmlFor="surname">Last Name</label>
+          <input
+            type="text"
+            value={info.surname}
+            onChange={handleChange}
+            name="surname"
+          />
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            value={info.email}
+            onChange={handleChange}
+            name="email"
+          />
+          <label htmlFor="phone">Phone</label>
+          <input
+            type="text"
+            value={info.phone}
+            onChange={handleChange}
+            name="phone"
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
   );
 };
 

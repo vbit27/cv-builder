@@ -1,25 +1,71 @@
-$primaryColor: #61dafb;
+$primaryColor: #0071ff;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 .App {
   text-align: center;
   height: fit-content;
   width: 800px;
   margin: 0 auto;
-  background-color: $primaryColor;
 }
 
-form {
+.title {
+  letter-spacing: 0.2rem;
+  text-align: left;
+  margin: 1rem 0;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+
+  form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border-top: 1px solid rgb(216, 222, 226);
+    border-bottom: 1px solid rgb(216, 222, 226);
+    padding: 1rem 0;
+
+    input {
+      width: 100%;
+      margin: 0.3rem;
+      border-radius: 3px;
+      border: 1px solid rgb(216, 222, 226);
+      padding: 0.4rem;
+      outline: none;
+    }
+    input:focus {
+      border: 1px solid #61dafb;
+    }
+
+    label {
+      width: 100%;
+      display: flex;
+      margin: 0.2rem;
+    }
+  }
 }
 
 button {
-  background-color: white;
+  background-color: $primaryColor;
+  color: white;
   border: none;
-  padding: 1em;
-  border-radius: 24px;
+  padding: 0.8em 1.5em;
+  margin: 1rem;
+  letter-spacing: 0.08rem;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #61dafb;
-  color: white;
+  background-color: #ffffff;
+  border: 1px solid $primaryColor;
+  color: $primaryColor;
 }

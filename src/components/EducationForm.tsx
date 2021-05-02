@@ -32,46 +32,44 @@ const EducationForm: FC<Prop> = (props) => {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="university">University</label>
-          <input
-            type="text"
-            name="university"
-            value={input.university}
-            onChange={handleChange}
-          />
-          <label htmlFor="city">City</label>
-          <input
-            type="text"
-            name="city"
-            value={input.city}
-            onChange={handleChange}
-          />
-          <label htmlFor="degree">Degree</label>
-          <input
-            type="text"
-            name="degree"
-            value={input.degree}
-            onChange={handleChange}
-          />
-          <label htmlFor="Subject">Subject</label>
-          <input
-            type="text"
-            name="subject"
-            value={input.subject}
-            onChange={handleChange}
-          />
-          <label htmlFor="year">Year</label>
-          <input
-            type="date"
-            name="year"
-            value={input.year}
-            onChange={handleChange}
-          />
-          <button type="submit">{props.edit ? 'Update' : 'Submit'}</button>
-        </div>
+        <label htmlFor="university">University</label>
+        <input
+          type="text"
+          name="university"
+          value={input.university}
+          onChange={handleChange}
+        />
+        <label htmlFor="city">City</label>
+        <input
+          type="text"
+          name="city"
+          value={input.city}
+          onChange={handleChange}
+        />
+        <label htmlFor="degree">Degree</label>
+        <input
+          type="text"
+          name="degree"
+          value={input.degree}
+          onChange={handleChange}
+        />
+        <label htmlFor="Subject">Subject</label>
+        <input
+          type="text"
+          name="subject"
+          value={input.subject}
+          onChange={handleChange}
+        />
+        <label htmlFor="year">Year</label>
+        <input
+          type="date"
+          name="year"
+          value={input.year}
+          onChange={handleChange}
+        />
+        <button type="submit">{props.edit ? 'Update' : 'Submit'}</button>
       </form>
     </div>
   );

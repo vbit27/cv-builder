@@ -31,8 +31,8 @@ const ExperienceForm: FC<Prop> = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <div className="form-container">
+      <form onSubmit={handleSubmit}>
         <label htmlFor="position">Position</label>
         <input
           type="text"
@@ -40,6 +40,7 @@ const ExperienceForm: FC<Prop> = (props) => {
           value={input.position}
           onChange={handleChange}
         />
+
         <label htmlFor="Company">Company</label>
         <input
           type="text"
@@ -69,8 +70,8 @@ const ExperienceForm: FC<Prop> = (props) => {
           onChange={handleChange}
         />
         <button type="submit">{props.edit ? 'Update' : 'Submit'}</button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 

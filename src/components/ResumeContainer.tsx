@@ -6,6 +6,7 @@ import PersonalData from './PersonalData';
 const ResumeContainer: FC = () => {
   return (
     <div>
+      <h1 className="title">Resume Builder</h1>
       <PersonalData />
       <ExperienceList />
       <EducationList />
