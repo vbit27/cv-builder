@@ -45,7 +45,6 @@ const PersonalData: FC = () => {
 
   return (
     <div>
-      <h3>Personal Information</h3>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">First Name</label>

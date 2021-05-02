@@ -29,9 +29,9 @@ $primaryColor: #0071ff;
     display: flex;
     flex-direction: column;
     width: 500px;
-    border-top: 1px solid rgb(216, 222, 226);
-    border-bottom: 1px solid rgb(216, 222, 226);
-    padding: 1rem 0;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    background-color: #f6f9fae8;
 
     input {
       width: 100%;
@@ -68,4 +68,20 @@ button:hover {
   background-color: #ffffff;
   border: 1px solid $primaryColor;
   color: $primaryColor;
+}
+
+.title-button {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  h2 {
+    flex-grow: 1;
+    text-align: left;
+  }
+}
+
+h2 {
+  text-align: left;
+  padding: 1rem 0;
 }

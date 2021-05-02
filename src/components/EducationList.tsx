@@ -27,8 +27,10 @@ function EducationList() {
   };
   return (
     <div>
-      <h1>Education</h1>
-      <button onClick={handleVisibility}>+ Add Education</button>
+      <div className="title-button">
+        <h2>Education</h2>
+        <button onClick={handleVisibility}>+ Add Education</button>
+      </div>
       {visibility ? (
         <EducationForm onSubmit={(input) => handleSubmit(input)} />
       ) : null}

@@ -26,8 +26,10 @@ function ExperienceList() {
 
   return (
     <div>
-      <h2>Work Experience</h2>
-      <button onClick={() => setVisibility(true)}>+ Add Job</button>
+      <div className="title-button">
+        <h2>Work Experience</h2>
+        <button onClick={() => setVisibility(true)}>+ Add Job</button>
+      </div>
       {visibility ? (
         <ExperienceForm onSubmit={(exp) => handleSubmit(exp)} />
       ) : null}
