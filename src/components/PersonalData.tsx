@@ -33,12 +33,16 @@ const PersonalData: FC = () => {
 
   if (!editMode) {
     return (
-      <div>
-        <h1>{info.name}</h1>
-        <h2>{info.surname}</h2>
-        <h2>{info.email}</h2>
-        <h2>{info.phone}</h2>
-        <button onClick={switchToEdit}>Edit</button>
+      <div className="header-conatainer">
+        <div className="name-container">
+          <h1>{info.name}</h1>
+          <h1>{info.surname}</h1>
+        </div>
+        <div className="email-container">
+          <h4>{info.email}</h4>
+          <h4>{info.phone}</h4>
+          <button onClick={switchToEdit}>Edit</button>
+        </div>
       </div>
     );
   }
