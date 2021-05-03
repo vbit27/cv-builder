@@ -35,14 +35,20 @@ const Experience: FC<Prop> = (props) => {
     <div>
       {props.expList.map((job) => {
         return (
-          <div key={job.id}>
-            <h3>{job.position}</h3>
-            <h3>{job.company}</h3>
-            <h3>{job.city}</h3>
-            <h3>{job.start}</h3>
-            <h3>{job.end}</h3>
-            <button onClick={() => handleDelete(job.id)}>Delete</button>
-            <button onClick={() => handleEdit(job)}>Edit</button>
+          <div key={job.id} className="experience-container">
+            <div className="date">
+              <h3>{job.start}</h3>
+              <h3>{job.end}</h3>
+            </div>
+            <div className="description">
+              <h3>{job.position}</h3>
+              <h3>{job.company}</h3>
+              <h3>{job.city}</h3>
+            </div>
+            <div className="buttons">
+              <button onClick={() => handleDelete(job.id)}>Delete</button>
+              <button onClick={() => handleEdit(job)}>Edit</button>
+            </div>
           </div>
         );
       })}

@@ -49,6 +49,7 @@ const PersonalData: FC = () => {
 
   return (
     <div>
+      <h2>Personal Information</h2>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">First Name</label>
