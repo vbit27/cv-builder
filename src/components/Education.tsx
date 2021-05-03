@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Studies } from './types';
+import { MdModeEdit, MdDelete } from 'react-icons/md';
 
 import EducationForm from './EducationForm';
 
@@ -34,14 +35,18 @@ const Education: FC<Prop> = (props) => {
   return (
     <div>
       {props.educationList.map((education) => (
-        <div key={education.id}>
-          <h4>{education.university}</h4>
-          <h4>{education.city}</h4>
-          <h4>{education.subject}</h4>
+        <div key={education.id} className="education-container">
           <h4>{education.degree}</h4>
-          <h4>{education.year}</h4>
-          <button onClick={() => handleDelete(education.id)}>Delete</button>
-          <button onClick={() => handleEdit(education)}>Edit</button>
+          <h4>{education.subject}</h4>
+          <h5>{education.university}</h5>
+          <h5>{education.city}</h5>
+          <h5>{education.year}</h5>
+          <button id="button" onClick={() => handleDelete(education.id)}>
+            <MdDelete />
+          </button>
+          <button id="button" onClick={() => handleEdit(education)}>
+            <MdModeEdit />
+          </button>
         </div>
       ))}
     </div>

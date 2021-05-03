@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import { MdModeEdit } from 'react-icons/md';
 
 const PersonalData: FC = () => {
   const [info, setInfo] = useState<Info>({
@@ -41,7 +42,9 @@ const PersonalData: FC = () => {
         <div className="email-container">
           <h4>{info.email}</h4>
           <h4>{info.phone}</h4>
-          <button onClick={switchToEdit}>Edit</button>
+          <button className="button-edit" onClick={switchToEdit}>
+            <MdModeEdit />
+          </button>
         </div>
       </div>
     );

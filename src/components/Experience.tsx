@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { JobsList } from './types';
 import ExperienceForm from './ExperienceForm';
+import { MdModeEdit, MdDelete } from 'react-icons/md';
 
 const Experience: FC<Prop> = (props) => {
   const [edit, setEdit] = useState<JobsList>(initialState);
@@ -42,12 +43,16 @@ const Experience: FC<Prop> = (props) => {
             </div>
             <div className="description">
               <h3>{job.position}</h3>
-              <h3>{job.company}</h3>
-              <h3>{job.city}</h3>
+              <h5>{job.company}</h5>
+              <h5>{job.city}</h5>
             </div>
             <div className="buttons">
-              <button onClick={() => handleDelete(job.id)}>Delete</button>
-              <button onClick={() => handleEdit(job)}>Edit</button>
+              <button id="button" onClick={() => handleDelete(job.id)}>
+                <MdDelete />
+              </button>
+              <button id="button" onClick={() => handleEdit(job)}>
+                <MdModeEdit />
+              </button>
             </div>
           </div>
         );

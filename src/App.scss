@@ -1,9 +1,13 @@
-$primaryColor: #0071ff;
+$primaryColor: #323b4f;
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  color: $primaryColor;
 }
 
 .App {
@@ -56,7 +60,7 @@ $primaryColor: #0071ff;
 button {
   background-color: $primaryColor;
   color: white;
-  border: none;
+  border: 1px solid $primaryColor;
   padding: 0.8em 1.5em;
   margin: 1rem;
   letter-spacing: 0.08rem;
@@ -66,8 +70,26 @@ button {
 
 button:hover {
   background-color: #ffffff;
-  border: 1px solid $primaryColor;
   color: $primaryColor;
+}
+
+#button {
+  background-color: white;
+  color: $primaryColor;
+  padding: 0.3rem;
+}
+
+.button-edit {
+  padding: 0.3rem;
+  background-color: transparent;
+  font-size: 1.5rem;
+  text-align: right;
+  border: 1px solid $primaryColor;
+}
+
+.button-edit:hover {
+  background-color: transparent;
+  color: white;
 }
 
 .title-button {
@@ -89,7 +111,7 @@ h2 {
 .header-conatainer {
   display: flex;
   font-family: 'Courier New', Courier, monospace;
-  background-color: #323b4f;
+  background-color: $primaryColor;
   color: white;
   padding: 0.5rem;
 
@@ -115,7 +137,40 @@ h2 {
     padding: 0.3rem;
   }
 }
-
+.experience-list-container {
+  border-bottom: 1px solid #bbbec462;
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+}
 .experience-container {
   display: flex;
+  align-items: center;
+
+  .date {
+    font-family: Arial, Helvetica, sans-serif;
+    color: grey;
+    font-size: 0.7rem;
+    font-family: Helvetica, sans-serif;
+    font-weight: 100;
+  }
+
+  h5 {
+    color: grey;
+    font-family: Helvetica, sans-serif;
+    font-weight: 100;
+  }
+
+  .description {
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 2rem;
+  }
+}
+
+.education-container {
+  h5 {
+    color: grey;
+    font-family: Helvetica, sans-serif;
+    font-weight: 100;
+  }
 }
